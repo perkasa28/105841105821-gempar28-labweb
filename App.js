@@ -3,31 +3,35 @@ import React from 'react'
 
 const App = () => {
   return (
-    <View
-      style={{
-      flex:1,
-      backgroundColor: 'black'
-    }}>
-        <View style={{
-          flex:1,
-          justifyContent:'flex-end',
-          alignItems:'center',
-          backgroundColor:'white'
-        }}>
-          <View style={{
-            width:100,height:100,backgroundColor:'red' 
-          }}>
-          </View>
-        </View>
+    <View style={{ 
+      flex: 1, 
+      alignItems: 'center',
+      justifyContent: 'center' 
+       }}>
       <View style={{
-          flex:1,
-          justifyContent:'flex-start',
-          alignItems:'center',
-          backgroundColor:'white'
-      }}>
-        <View style={{
-          width:100,height:100,backgroundColor:'blue'
+        flexDirection: 'row',
+        justifyContent: 'space-between', 
+        width: '60%'
         }}>
+        <View style={{ 
+        width: '45%', 
+        height: 50, 
+        backgroundColor: 'blue',
+        borderRadius:20, 
+        alignItems:'center', 
+        justifyContent:'center'
+        }}>
+        <Text style={{color:'white'}}>Login</Text>
+        </View>
+        <View style={{ 
+        width: '45%', 
+        height: 50, 
+        backgroundColor: 'blue', 
+        borderRadius:20, 
+        alignItems:'center', 
+        justifyContent:'center'
+        }}>
+        <Text style={{color:'white',fontweight:'bold'}}>Sign up</Text>
         </View>
       </View>
     </View>
