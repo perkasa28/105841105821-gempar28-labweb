@@ -23,19 +23,37 @@ const ButtonCostum  = ({ text, color }) => {
   )
 }
 
-const App=() => {
+const TextInputCustom =({placeholder,typekeyboard}) => {
   return(
-     <View style={{
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-     }}>
-      <ButtonCostum text="login" color="green" />
-      <ButtonCostum text="registed" color="blue" />
-      <ButtonCostum text="registed" color="blue" />
+      
+        <TextInput
+        placeholder={placeholder}
+        keyboardType={typekeyboard}
 
-     </View> 
-        
+        style={{
+          width: 250,
+          height:50,
+          borderColor:'gray',
+          borderWidth: 1,
+          borderRadius:10,
+          marginBottom:10,
+          paddingLeft: 10,
+        }}/>
+  )
+}
+const App = () => {
+  return(
+    <View style={{
+      flex:1,
+      justifyContent: 'center',
+      alignItems:'center',
+    }}>
+      <View>
+        <TextInputCustom placeholder="masukkan nama" color="green"/>
+        <TextInputCustom placeholder="masukkan nomor" typekeyboard="numeric" color="green"/>
+      </View>
+      
+    </View>
   )
 }
 
