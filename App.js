@@ -1,41 +1,44 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, text, View,Button,Text, TextInput } from 'react-native'
 import React from 'react'
 
-const App = () => {
+const ButtonCostum  = ({ text, color }) => {
   return (
-    <View style={{ 
-      flex: 1, 
-      alignItems: 'center',
-      justifyContent: 'center' 
-       }}>
-      <View style={{
-        flexDirection: 'row',
-        justifyContent: 'space-between', 
-        width: '60%'
-        }}>
-        <View style={{ 
-        width: '45%', 
-        height: 50, 
-        backgroundColor: 'blue',
-        borderRadius:20, 
-        alignItems:'center', 
-        justifyContent:'center'
-        }}>
-        <Text style={{color:'white'}}>Login</Text>
-        </View>
-        <View style={{ 
-        width: '45%', 
-        height: 50, 
-        backgroundColor: 'blue', 
-        borderRadius:20, 
-        alignItems:'center', 
-        justifyContent:'center'
-        }}>
-        <Text style={{color:'white',fontweight:'bold'}}>Sign up</Text>
-        </View>
-      </View>
+    <View style={{
+      backgroundColor: color,
+      width: 250,
+      height: 100,
+      borderRadius: 10 ,
+      justifyContent: 'center',
+      marginBottom: 10,
+    }}>
+      <Text style={{
+        textAlign: 'center',
+        color: 'white',
+        fontSize: 30,
+        fontWeight: 'bold',
+      }}>
+        {text}
+      </Text>
     </View>
   )
 }
 
+const App=() => {
+  return(
+     <View style={{
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+     }}>
+      <ButtonCostum text="login" color="green" />
+      <ButtonCostum text="registed" color="blue" />
+      <ButtonCostum text="registed" color="blue" />
+
+     </View> 
+        
+  )
+}
+
 export default App
+
+const styles = StyleSheet.create({})
