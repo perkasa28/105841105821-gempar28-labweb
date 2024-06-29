@@ -45,23 +45,22 @@ const TextInputCustom = ({ placeholder, typekeyboard }) => {
 
 const App = () => {
   const [] = useFonts({
-    MetropolisBlack : require('./assets/fonts/Metropolis-Black.otf')
-  })
+    MetropolisBlack : require ('./assets/fonts/Metropolis-Black.otf')
+  });
   return (
     <View style={styles.container}>
       <View style={styles.content}>
-        <Text style={styles.title}>Sign up</Text>
+        <Text style={styles.title}>Login</Text>
         <View style={styles.form}>
-          <TextInputCustom placeholder="Name" typekeyboard="default" />
           <TextInputCustom placeholder="Email" typekeyboard="email-address" />
           <TextInputCustom placeholder="Password" typekeyboard="default" />
           <View style={{ flexDirection: 'row', justifyContent: 'flex-end', marginBottom: 10 }}>
-            <Text style={{ fontSize: 16, textAlign:'center' }}>Already have an account?</Text>
+            <Text style={{ fontSize: 16, textAlign:'center' }}>Forgot your password?</Text>
           </View>
-          <ButtonCustom text="SIGN UP" color="red" />
+          <ButtonCustom text="LOGIN" color="red" />
         </View>
       </View>
-      <Text style={{ fontSize: 16,textAlign:'center' }}>Or sign up with social account</Text>
+      <Text style={{ fontSize: 16,textAlign:'center' }}>Or login with social account</Text>
       <View style={styles.logoRow}>
         
         <View style={styles.logoContainer}>

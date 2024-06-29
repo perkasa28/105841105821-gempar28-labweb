@@ -44,34 +44,22 @@ const TextInputCustom = ({ placeholder, typekeyboard }) => {
 }
 
 const App = () => {
-  const [] = useFonts({
-    MetropolisBlack : require('./assets/fonts/Metropolis-Black.otf')
-  })
+  const [fontloaded]= useFonts({
+    MetropolisBlack : require('./assets/fonts/Metropolis-Black.otf'),
+  });
   return (
     <View style={styles.container}>
       <View style={styles.content}>
-        <Text style={styles.title}>Sign up</Text>
+        <Text style={styles.title}>Forgot password</Text>
         <View style={styles.form}>
-          <TextInputCustom placeholder="Name" typekeyboard="default" />
-          <TextInputCustom placeholder="Email" typekeyboard="email-address" />
-          <TextInputCustom placeholder="Password" typekeyboard="default" />
-          <View style={{ flexDirection: 'row', justifyContent: 'flex-end', marginBottom: 10 }}>
-            <Text style={{ fontSize: 16, textAlign:'center' }}>Already have an account?</Text>
+        <View style={{ flexDirection: 'row', justifyContent: 'flex-end', marginBottom: 10 }}>
+            <Text style={{ fontSize: 12, textAlign:'center' }}>Please,enter your email address. You will receive a link to create a new password via email.</Text>
           </View>
-          <ButtonCustom text="SIGN UP" color="red" />
+          <TextInputCustom placeholder="Email" typekeyboard="email-address" />
+          <ButtonCustom text="SEND" color="red" />
         </View>
       </View>
-      <Text style={{ fontSize: 16,textAlign:'center' }}>Or sign up with social account</Text>
-      <View style={styles.logoRow}>
-        
-        <View style={styles.logoContainer}>
-          <Image source={require('./assets/facebook.png')} style={styles.logo} />
-        </View>
-        <View style={styles.logoContainer}>
-          <Image source={require('./assets/google.png')} style={styles.logo} />
-        </View>
       </View>
-    </View>
   )
 }
 
@@ -90,28 +78,12 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 30,
-    marginBottom: 40,
+    marginBottom: 70,
     fontFamily: "MetropolisBlack"
   },
   form: {
     width: '100%',
     alignItems: 'center',
-  },
-  logoRow: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingVertical: 20,
-  },
-  logoContainer: {
-    backgroundColor: 'white',
-    borderRadius: 15,
-    padding: 10,
-    marginHorizontal: 10,
-  },
-  logo: {
-    width: 50,
-    height: 50,
-  },
-});
+  }
+  });
 
