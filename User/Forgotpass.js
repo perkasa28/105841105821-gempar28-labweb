@@ -1,6 +1,7 @@
-import { StyleSheet, View, Text, TextInput, Image } from 'react-native';
+import { StyleSheet, View, Text, TextInput,TouchableOpacity,Image } from 'react-native';
 import React from 'react';
 import { useFonts } from 'expo-font';
+import { useNavigation } from '@react-navigation/native';
 
 const ButtonCustom = ({ text, color }) => {
   return (
@@ -43,12 +44,16 @@ const TextInputCustom = ({ placeholder, typekeyboard }) => {
   )
 }
 
-const App = () => {
+const  App = ()  => {
+  const navigation = useNavigation();
   const [fontloaded]= useFonts({
-    MetropolisBlack : require('./assets/fonts/Metropolis-Black.otf'),
+    MetropolisBlack : require('../assets/fonts/Metropolis-Black.otf'),
   });
   return (
     <View style={styles.container}>
+      <TouchableOpacity onPress={()=>navigation.navigate('LoginPage')}>
+        <Image source={require('../assets/back.png')} style={{width: 24, height:24,marginTop:50}}/>
+      </TouchableOpacity>
       <View style={styles.content}>
         <Text style={styles.title}>Forgot password</Text>
         <View style={styles.form}>

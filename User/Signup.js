@@ -1,6 +1,7 @@
-import { StyleSheet, View, Text, TextInput, Image } from 'react-native';
+import { StyleSheet, View, Text, TextInput, Image, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { useFonts } from 'expo-font';
+import { useNavigation } from '@react-navigation/native';
 
 const ButtonCustom = ({ text, color }) => {
   return (
@@ -42,10 +43,10 @@ const TextInputCustom = ({ placeholder, typekeyboard }) => {
     />
   )
 }
-
 const App = () => {
+  const navigation = useNavigation();
   const [] = useFonts({
-    MetropolisBlack : require('./assets/fonts/Metropolis-Black.otf')
+    MetropolisBlack : require('../assets/fonts/Metropolis-Black.otf')
   })
   return (
     <View style={styles.container}>
@@ -56,19 +57,22 @@ const App = () => {
           <TextInputCustom placeholder="Email" typekeyboard="email-address" />
           <TextInputCustom placeholder="Password" typekeyboard="default" />
           <View style={{ flexDirection: 'row', justifyContent: 'flex-end', marginBottom: 10 }}>
-            <Text style={{ fontSize: 16, textAlign:'center' }}>Already have an account?</Text>
+            <TouchableOpacity 
+            onPress={()=>navigation.navigate('LoginPage')}>
+              <Text style={{ fontSize: 16, textAlign:'center' }}>Already have an account?</Text>
+            </TouchableOpacity>
           </View>
-          <ButtonCustom text="SIGN UP" color="red" />
+          <ButtonCustom text="SIGN UP" color="red"  />
         </View>
       </View>
       <Text style={{ fontSize: 16,textAlign:'center' }}>Or sign up with social account</Text>
       <View style={styles.logoRow}>
         
         <View style={styles.logoContainer}>
-          <Image source={require('./assets/facebook.png')} style={styles.logo} />
+          <Image source={require('../assets/facebook.png')} style={styles.logo} />
         </View>
         <View style={styles.logoContainer}>
-          <Image source={require('./assets/google.png')} style={styles.logo} />
+          <Image source={require('../assets/google.png')} style={styles.logo} />
         </View>
       </View>
     </View>

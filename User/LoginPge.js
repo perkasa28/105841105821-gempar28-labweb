@@ -1,6 +1,7 @@
-import { StyleSheet, View, Text, TextInput, Image } from 'react-native';
+import { StyleSheet, View, Text, TextInput, Image, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { useFonts } from 'expo-font';
+import { useNavigation } from '@react-navigation/native';
 
 const ButtonCustom = ({ text, color }) => {
   return (
@@ -44,18 +45,24 @@ const TextInputCustom = ({ placeholder, typekeyboard }) => {
 }
 
 const App = () => {
+  const navigation = useNavigation();
   const [] = useFonts({
-    MetropolisBlack : require ('./assets/fonts/Metropolis-Black.otf')
+    MetropolisBlack : require ('../assets/fonts/Metropolis-Black.otf')
   });
   return (
     <View style={styles.container}>
+      <TouchableOpacity onPress={()=>navigation.navigate('Signup')}>
+        <Image source={require('../assets/back.png')} style={{width: 24, height:24,marginTop:50}}/>
+      </TouchableOpacity>
       <View style={styles.content}>
         <Text style={styles.title}>Login</Text>
         <View style={styles.form}>
           <TextInputCustom placeholder="Email" typekeyboard="email-address" />
           <TextInputCustom placeholder="Password" typekeyboard="default" />
           <View style={{ flexDirection: 'row', justifyContent: 'flex-end', marginBottom: 10 }}>
-            <Text style={{ fontSize: 16, textAlign:'center' }}>Forgot your password?</Text>
+            <TouchableOpacity onPress={() =>navigation.navigate('Forgotpass')}>
+              <Text style={{ fontSize: 16, textAlign:'center' }}>Forgot your password?</Text>
+            </TouchableOpacity>
           </View>
           <ButtonCustom text="LOGIN" color="red" />
         </View>
@@ -64,10 +71,10 @@ const App = () => {
       <View style={styles.logoRow}>
         
         <View style={styles.logoContainer}>
-          <Image source={require('./assets/facebook.png')} style={styles.logo} />
+          <Image source={require('../assets/facebook.png')} style={styles.logo} />
         </View>
         <View style={styles.logoContainer}>
-          <Image source={require('./assets/google.png')} style={styles.logo} />
+          <Image source={require('../assets/google.png')} style={styles.logo} />
         </View>
       </View>
     </View>
